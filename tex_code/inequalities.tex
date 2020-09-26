@@ -1,0 +1,74 @@
+\documentclass[12pt, letterpaper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{theorem}{Theorem}
+
+\title{Inequalities}
+\author{Doan Ngoc Phu}
+\date{\today}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\begin{theorem}(\textbf{Markov's inequalities})
+Let $X$ be a non-negative random variable and suppose $\mathbb{E}(X)$ exists. For any, $t > 0$,
+\[
+\mathbb{P}(X > t) \leq \frac{\mathbb{E}(X)}{t}
+\]
+\end{theorem}
+
+\begin{proof}fk8y
+We have $X > 0$ so: 
+
+\begin{align*}
+\mathbb{E}(x) &= \int_0^{+\infty}xf(x) \, dx \\
+ &= \int_0^{t}xf(x) \, dx + \int_t^{+\infty} xf(x)\, dx \\
+ &\geq \int_t^{+\infty} xf(x)\, dx \\
+ &\geq t\int_t^{+\infty} f(x)dx \\
+ &= t\,\mathbb{P}(X > t)
+\end{align*}
+
+\end{proof}
+
+\begin{theorem}(\textbf{Chebysev's inequality})
+Let $\mu = \mathbb{E}(X)$ and $\sigma^2 = \mathbb{V}(X)$. Then,
+\[
+\mathbb{P}(|X-\mu| \geq t)\leq \frac{\sigma^2}{t^2}\quad \textit{and} \quad \mathbb{P}(|Z| \geq k) \leq \frac{1}{k^2}
+\]
+where $Z = (X-\mu)/\sigma $.
+\end{theorem}
+
+\begin{proof}
+\[\mathbb{P}(|X-\mu|\geq t) = \mathbb{P}(|X-\mu|^2 \geq t^2) \leq \frac{\mathbb{E}((X-\mu)^2)}{t^2} = \frac{\sigma^2}{t^2}\]
+
+\[\mathbb{P}(|Z|\geq k) = \mathbb{P}(|X-\mu| \geq \sigma k) \leq \frac{\sigma^2}{\sigma^2k^2}=\frac{1}{k^2}\]
+\end{proof}
+
+\begin{theorem}(\textbf{Hoeffding's inequality})
+Let $Y_1, Y_2, \hdots, Y_n$ be independent observations such that $\mathbb{E}(X_i) = 0$ and $a_i \leq Y_i \leq b_i$. Let $\epsilon > 0$. Then, for any $\epsilon > 0$,
+\[
+\mathbb{P}(\sum_{i=1}^n\, Y_i \geq \epsilon) \leq e^{-t\epsilon}\prod_{i=1}^ne^{t^2(b_i-a_i)^2/8}
+\]
+Let $X_1, X_2, \hdots, X_n \sim$ Bernulli$(p)$. Then, for any $\epsilon > 0$,
+\[
+\mathbb{P}(|\overline{X_n}-p| > \epsilon) \leq 2e^{-2n\epsilon^2}
+\] 
+where $\overline{X_n} = \frac{X_1 + X_2 + \hdots + X_n}{n}$
+\end{theorem}
+
+\begin{theorem}(\textbf{Cauchy-Schwarz inequality})
+If $X$ and $Y$ have finite variances then
+\[\mathbb{E}(|XY|) \leq \sqrt{\mathbb{E}(X^2)\mathbb{E}(Y^2)}\]
+\end{theorem}
+
+\begin{theorem}(\textbf{Jensen's Inequality})
+If g is \texttt{convex} then
+\[\mathbb{E}g(X) \geq g(\mathbb{E}(X))\]
+if g is \texttt{concave} then 
+\[\mathbb{E}g(X) \leq g(\mathbb{E}(X))\]
+\end{theorem}
+
+\end{document}
